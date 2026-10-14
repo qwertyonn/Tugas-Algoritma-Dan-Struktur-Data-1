@@ -1,0 +1,41 @@
+CekKelulusan
+
+{I.S. : Pengguna memasukkan Nama Siswa (nama_siswa), Nilai Matematika (nilai_mtk), Nilai Bahasa Indonesia (nilai_bhs_indo), Nilai IPA (nilai_ipa), Nilai Bahasa Inggris (nilai_bhs_inggris), dan Standar Kelulusan (standar_kelulusan)}
+{F.S. : Menampilkan hasil status kelulusan siswa berdasarkan nilai-nilainya}
+
+Kamus:
+    nama_siswa, keterangan : string
+    nilai_mtk, nilai_bhs_indo, nilai_ipa, nilai_bhs_inggris : real
+    standar_kelulusan : integer
+
+Algoritma:
+    Input(nama_siswa, nilai_mtk, nilai_bhs_indo, nilai_ipa, nilai_bhs_inggris, standar_kelulusan)
+
+    {menentukan status kelulusan}
+    If (nilai_mtk >= standar_kelulusan) AND (nilai_bhs_indo >= standar_kelulusan) AND (nilai_ipa >= standar_kelulusan) AND (nilai_bhs_inggris >= standar_kelulusan)
+        then
+            keterangan <- "Selamat " + nama_siswa + ", kamu telah lulus semua mata pelajaran"
+            Output(keterangan)
+        Elif (nilai_mtk < standar_kelulusan) AND (nilai_bhs_indo < standar_kelulusan) AND (nilai_ipa < standar_kelulusan) AND (nilai_bhs_inggris < standar_kelulusan)
+            then
+                keterangan <- nama_siswa + " tidak lulus, harus mengikuti remedial semua mata pelajaran"
+                Output(keterangan)
+        Else
+        Output(nama_siswa + " tidak lulus, harus mengikuti remedial:")
+        If (nilai_mtk < standar_kelulusan)
+            then
+                Output("- Matematika")
+        Endif
+        If (nilai_bhs_indo < standar_kelulusan)
+            then
+                Output("- Bahasa Indonesia")
+        Endif
+        If (nilai_ipa < standar_kelulusan)
+            then
+                Output("- IPA")
+        Endif
+        If (nilai_bhs_inggris < standar_kelulusan)
+            then
+                Output("- Bahasa Inggris")
+        Endif
+    Endif

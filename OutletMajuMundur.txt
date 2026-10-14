@@ -1,0 +1,33 @@
+OutletMajuMundur
+
+{I.S. : Pengguna memasukkan Kode Produk (kode_produk), Jumlah Beli (jumlah_beli), Harga Satuan (harga_satuan), dan Uang Bayar (uang_bayar)}
+{F.S. : Menampilkan Total Harga (total_harga), Diskon (diskon), Total Bayar (total_bayar), dan Uang Kembalian (uang_kembalian)}
+
+Kamus:
+    kode_produk : string
+    jumlah_beli, harga_satuan, uang_bayar : integer
+    total_harga, diskon, total_bayar, uang_kembalian : real
+
+Algoritma:
+    {badan program}
+    {memasukkan kode produk, jumlah beli, dan harga satuan}
+    Input(kode_produk, jumlah_beli, harga_satuan)
+
+    total_harga <- jumlah_beli * harga_satuan
+
+    {menentukan diskon}
+    If (total_harga > 500000)
+        then
+            diskon <- total_harga * 0.125
+        Else
+            diskon <- 0
+    Endif
+
+    {menghitung pembayaran}
+    total_bayar <- total_harga - diskon
+    Output(total_harga, diskon, total_bayar)
+
+    {menghitung kembalian}
+    Input(uang_bayar)
+    uang_kembalian <- uang_bayar - total_bayar
+    Output(uang_kembalian)
